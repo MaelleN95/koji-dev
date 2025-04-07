@@ -1,5 +1,6 @@
 {
   "name": "koji-dev.fr",
+  "author": "Maëlle Nioche",
   "private": true,
   "version": "0.0.0",
   "type": "module",

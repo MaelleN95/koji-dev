@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --gris-clair: #f2f3f5;
+  --gris-moyen: #dcdfe4;
+  --gris-fonce: #677182;
+  --bleu-fonce: #1e293b;
+  --orange: #f97316;
+  --vert: #8ed9cb;
+
+  --poppins: 'Poppins', sans-serif;
+  --inter: 'Inter', sans-serif;
+}
+
+h1 {
+  font-family: var(--poppins);
+  font-size: 3.5rem;
+  font-weight: bolder;
+  color: var(--bleu-fonce);
+  letter-spacing: -0.1rem;
+  margin: 0;
+}
+
+h2 {
+  font-family: var(--poppins);
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: var(--bleu-fonce);
+  margin: 0.7rem 0 1.6rem 0;
+}
+
+h3 {
+  font-family: var(--poppins);
+  font-size: 1.75rem;
+  font-weight: medium;
+  color: var(--bleu-fonce);
+  margin: 0;
+}
+
+h4 {
+  font-family: var(--poppins);
+  font-size: 1.25rem;
+  font-weight: medium;
+  color: var(--bleu-fonce);
+  margin: 0;
+}
+
+body {
+  font-family: var(--inter);
+  font-size: 1.5rem;
+  color: var(--bleu-fonce);
+  background-color: var(--gris-clair);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+a {
+  font-family: var(--poppins);
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--orange);
+}
+
+a:hover {
+  color: var(--vert);
+  text-decoration: underline;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.25rem;
+  color: var(--orange);
+  background-color: transparent;
+  border: 2px solid var(--orange);
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.cta-btn:hover {
+  background-color: var(--vert);
+  color: #1e293b;
+  border-color: var(--vert);
+}
+
+footer {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  color: var(--gris-fonce);
+}
+
+/* TOGGLE THEME BUTTON */
+
+/* From Uiverse.io by Emil190313 */
+.theme-toggle {
+  background-color: var(--gris-fonce);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+
+#theme-toggle {
+  display: none;
+}
+
+.icon {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 300ms;
+}
+
+.icon--moon {
+  color: var(--bleu-fonce);
+  transform: scale(0);
+}
+
+.icon--sun {
+  color: var(--gris-clair);
+}
+
+#theme-toggle:checked ~ .icon--moon {
+  transform: scale(1) rotate(360deg);
+}
+
+#theme-toggle:checked + .icon--sun {
+  transform: rotate(180deg) scale(0);
+}
+
+/* TEMPORARY FOR THE MAINTENANCE PAGE */
+
+.comming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.comming-soon .koji-logo {
+  width: 200px;
+  margin-bottom: 2rem;
+}
+
+.comming-soon .countdown-timer {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--orange);
+}
+
+/* LIGHT / DARK MODE */
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  .koji-logo {
+    filter: brightness(0);
+  }
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  body {
+    background-color: var(--bleu-fonce);
+    color: var(--gris-clair);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--gris-clair);
+  }
+}
+
+/* ============================== */
+/*        RESPONSIVE STYLES      */
+/* ============================== */
+
+/* Small desktop (max-width: 1024px) */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+  }
+
+  body {
+    font-size: 1.25rem;
+  }
+
+  .cta-btn {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+
+  .comming-soon .koji-logo {
+    width: 160px;
+  }
+
+  .comming-soon .countdown-timer {
+    font-size: 2.5rem;
+  }
+
+  .theme-toggle {
+    width: 45px;
+    height: 45px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.25rem;
+    letter-spacing: -0.05rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  body {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .cta-btn {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .comming-soon {
+    padding: 2rem 1rem;
+  }
+
+  .comming-soon .koji-logo {
+    width: 130px;
+    margin-bottom: 1.5rem;
+  }
+
+  .comming-soon .countdown-timer {
+    font-size: 2rem;
+  }
+
+  footer {
+    font-size: 1rem;
+    padding: 0 1rem;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+    letter-spacing: -0.03rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  body {
+    font-size: 0.95rem;
+    padding: 0 0.75rem;
+  }
+
+  .cta-btn {
+    font-size: 0.95rem;
+    padding: 8px 14px;
+  }
+
+  .comming-soon {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .comming-soon .koji-logo {
+    width: 100px;
+    margin-bottom: 1.2rem;
+  }
+
+  .comming-soon .countdown-timer {
+    font-size: 1.5rem;
+  }
+
+  footer {
+    font-size: 0.875rem;
+    padding: 0 0.5rem;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+}
