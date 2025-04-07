@@ -39,4 +39,4 @@ jobs:
       - name: Deploy to server
         run: |
           PROJECT_DOMAIN="koji-dev.fr"
-          rsync -avz --delete -e "ssh -p ${{ secrets.HOSTINGER_SSH_PORT }}" dist/ ${{ secrets.HOSTINGER_USERNAME }}@${{ secrets.HOSTINGER_HOST }}:/home/${{ secrets.HOSTINGER_USERNAME }}/domains/${PROJECT_DOMAIN}/public_html/```
+          rsync -avz --delete -e "ssh -p ${{ secrets.HOSTINGER_SSH_PORT }}" dist/ ${{ secrets.HOSTINGER_USERNAME }}@${{ secrets.HOSTINGER_HOST }}:/home/${{ secrets.HOSTINGER_USERNAME }}/domains/${PROJECT_DOMAIN}/public_html/
