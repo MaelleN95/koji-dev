@@ -16,7 +16,6 @@ h1 {
   font-family: var(--poppins);
   font-size: 3.5rem;
   font-weight: bolder;
-  color: var(--bleu-fonce);
   letter-spacing: -0.1rem;
   margin: 0;
 }
@@ -25,7 +24,6 @@ h2 {
   font-family: var(--poppins);
   font-size: 2.25rem;
   font-weight: bold;
-  color: var(--bleu-fonce);
   margin: 0.7rem 0 1.6rem 0;
 }
 
@@ -33,7 +31,6 @@ h3 {
   font-family: var(--poppins);
   font-size: 1.75rem;
   font-weight: medium;
-  color: var(--bleu-fonce);
   margin: 0;
 }
 
@@ -41,19 +38,33 @@ h4 {
   font-family: var(--poppins);
   font-size: 1.25rem;
   font-weight: medium;
-  color: var(--bleu-fonce);
   margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+}
+
+nav a {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 1.5rem;
 }
 
 body {
   font-family: var(--inter);
   font-size: 1.5rem;
-  color: var(--bleu-fonce);
-  background-color: var(--gris-clair);
   line-height: 1.5;
   margin: 0 auto;
   padding: 0;
+}
+
+main {
   max-width: 1300px;
+  margin: 0 auto;
 }
 
 p {
@@ -66,22 +77,54 @@ a {
   font-weight: bold;
   text-decoration: none;
   color: var(--orange);
+  position: relative;
+  transition: color 0.2s ease;
+  cursor: pointer;
 }
 
 a:hover {
   color: var(--vert);
-  text-decoration: underline;
+}
+
+.sweeping-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.sweeping-underline:hover {
+  text-decoration: none;
+}
+
+.sweeping-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.sweeping-underline:hover::after {
+  width: 100%;
 }
 
 .cta-btn {
+  position: relative;
   display: inline-block;
-  padding: 12px 25px;
+  font-family: var(--poppins);
   font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
   color: var(--orange);
+  text-decoration: none;
+  padding: 12px 25px;
   background-color: transparent;
   border: 2px solid var(--orange);
   border-radius: 5px;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .cta-btn:hover {
@@ -90,15 +133,51 @@ a:hover {
   border-color: var(--vert);
 }
 
+.cta-btn:active {
+  transform: scale(0.95);
+}
+
+.cta-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #f97416b1;
+}
+
+.cta-btn:hover .sweeping-underline::after {
+  width: 100%;
+}
+
+.koji-logo {
+  width: 60px;
+}
+
+/* FOOTER */
+
 footer {
   font-size: 1.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 1rem 0;
-  color: var(--gris-fonce);
+  color: var(--gris-clair);
 }
 
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  margin: 0;
+  padding: 1rem 3rem;
+  background-color: var(--bleu-fonce);
+}
+
+.footer-colomns {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  margin: 0 0 1rem 0;
+}
 /* TOGGLE THEME BUTTON */
 
 /* From Uiverse.io by Emil190313 */
@@ -149,26 +228,6 @@ footer {
 
 /* TEMPORARY FOR THE MAINTENANCE PAGE */
 
-.comming-soon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-}
-
-.comming-soon .koji-logo {
-  width: 200px;
-  margin-bottom: 2rem;
-}
-
-.comming-soon .countdown-timer {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--orange);
-}
-
 /* LIGHT / DARK MODE */
 
 [data-theme='light'] {
@@ -177,12 +236,27 @@ footer {
   .koji-logo {
     filter: brightness(0);
   }
+
+  header {
+    background-color: var(--gris-clair);
+    color: var(--gris-fonce);
+  }
+
+  footer .koji-logo {
+    filter: none;
+  }
 }
 
 [data-theme='dark'] {
   color-scheme: dark;
 
   body {
+    background-color: var(--bleu-fonce);
+    color: var(--gris-clair);
+  }
+
+  header,
+  footer {
     background-color: var(--bleu-fonce);
     color: var(--gris-clair);
   }
@@ -226,14 +300,6 @@ footer {
     padding: 10px 20px;
   }
 
-  .comming-soon .koji-logo {
-    width: 160px;
-  }
-
-  .comming-soon .countdown-timer {
-    font-size: 2.5rem;
-  }
-
   .theme-toggle {
     width: 45px;
     height: 45px;
@@ -268,19 +334,6 @@ footer {
   .cta-btn {
     font-size: 1rem;
     padding: 8px 16px;
-  }
-
-  .comming-soon {
-    padding: 2rem 1rem;
-  }
-
-  .comming-soon .koji-logo {
-    width: 130px;
-    margin-bottom: 1.5rem;
-  }
-
-  .comming-soon .countdown-timer {
-    font-size: 2rem;
   }
 
   footer {
@@ -330,19 +383,6 @@ footer {
   .cta-btn {
     font-size: 0.95rem;
     padding: 8px 14px;
-  }
-
-  .comming-soon {
-    padding: 1.5rem 0.75rem;
-  }
-
-  .comming-soon .koji-logo {
-    width: 100px;
-    margin-bottom: 1.2rem;
-  }
-
-  .comming-soon .countdown-timer {
-    font-size: 1.5rem;
   }
 
   footer {
