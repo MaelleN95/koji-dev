@@ -5,7 +5,7 @@
     <link
       rel="icon"
       type="image/png"
-      href="/src/assets/images/koji-mini-logo.png"
+      href="/src/assets/images/logos/koji-mini-logo.png"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kōji</title>
@@ -53,7 +53,7 @@
         "@type": "Organization",
         "name": "Kōji",
         "url": "https://koji-dev.fr",
-        "logo": "https://koji-dev.fr/koji-mini-logo.png",
+        "logo": "https://koji-dev.fr/logos/koji-mini-logo.png",
         "description": "Création de sites web sur-mesure, performants et esthétiques. Kōji vous accompagne de l’idée à la mise en ligne avec passion et rigueur.",
         "founder": {
           "@type": "Person",
@@ -79,7 +79,7 @@
   <body>
     <header>
       <img
-        src="/src/assets/images/koji-logo.png"
+        src="/src/assets/images/logos/koji-logo.png"
         alt="Logo Koji"
         class="koji-logo"
       />
@@ -87,80 +87,263 @@
       <nav>
         <a href="#" class="sweeping-underline">Accueil</a>
         <a href="about.html" class="sweeping-underline">A propos</a>
-        <a href="#" class="sweeping-underline">Services</a>
+        <a href="#" class="sweeping-underline">Mes services</a>
         <a href="portfolio.html" class="sweeping-underline">Portfolio</a>
         <a href="#" class="sweeping-underline">Contact</a>
       </nav>
     </header>
     <main>
-      <section>
-        <h1>Donnez vie à vos idées avec des solutions sur mesure.</h1>
-        <p>
-          Chez Kōji, chaque projet est unique. Ensemble, construisons un site
-          performant et sur-mesure, adapté à vos besoins.
-        </p>
-        <a href="mailto:contact@koji-dev.fr" class="cta-btn"
-          ><span class="sweeping-underline">Travaillons ensemble !</span></a
-        >
+      <section id="koji-home">
+        <div class="section-max-width">
+          <img
+            src="/src/assets/images/koji-netsu.png"
+            alt="Netsu, la mascotte de Kōji"
+            class="koji-netsu"
+          />
+          <div>
+            <h1>Donnez vie à vos idées avec des solutions sur mesure.</h1>
+            <p>
+              Chez Kōji, chaque projet est unique. Ensemble, construisons un
+              site performant et sur-mesure, adapté à vos besoins.
+            </p>
+            <a href="#contact" class="cta-btn"
+              ><span class="sweeping-underline">Travaillons ensemble !</span></a
+            >
+          </div>
+        </div>
       </section>
-      <section>
-        <h2>Mes services pour vos besoins</h2>
-        <p>
-          Des solutions complètes pour chaque étape de votre projet. Que vous
-          démarriez de zéro ou que vous souhaitiez améliorer votre site
-          existant, je suis là pour vous accompagner.
-        </p>
+      <section id="services">
+        <div class="section-max-width">
+          <h2>Mes services pour vos besoins</h2>
+          <p>
+            Des solutions complètes pour chaque étape de votre projet. Que vous
+            démarriez de zéro ou que vous souhaitiez améliorer votre site
+            existant, je suis là pour vous accompagner.
+          </p>
+          <div class="services-card-section">
+            <div class="service-card" id="service-card-create">
+              <lord-icon
+                src="https://cdn.lordicon.com/fikcyfpp.json"
+                trigger="hover"
+                colors="primary:#1e293b,secondary:#f97316"
+                target="#service-card-create"
+              >
+              </lord-icon>
+              <h3>Création de site web</h3>
+              <ul>
+                <li>Sites vitrine</li>
+                <li>Portfolios</li>
+                <li>Boutiques en ligne</li>
+              </ul>
+            </div>
+
+            <div class="service-card" id="service-card-optimization">
+              <lord-icon
+                src="https://cdn.lordicon.com/jezazvlx.json"
+                trigger="hover"
+                colors="primary:#1e293b,secondary:#f97316"
+                target="#service-card-optimization"
+              >
+              </lord-icon>
+              <h3>Optimisation</h3>
+              <ul>
+                <li>Audit technique de sites existants</li>
+                <li>Amélioration des performances (vitesse, SEO)</li>
+              </ul>
+            </div>
+
+            <div class="service-card" id="service-card-maintenance">
+              <lord-icon
+                src="https://cdn.lordicon.com/mfblariy.json"
+                trigger="hover"
+                colors="primary:#1e293b,secondary:#f97316"
+                target="#service-card-maintenance"
+              >
+              </lord-icon>
+              <h3>Maintenance</h3>
+              <ul>
+                <li>Mises à jour régulières</li>
+                <li>Assistance technique</li>
+              </ul>
+            </div>
+
+            <div class="service-card" id="service-card-seo">
+              <lord-icon
+                src="https://cdn.lordicon.com/wjyqkiew.json"
+                trigger="hover"
+                colors="primary:#1e293b,secondary:#f97316"
+                target="#service-card-seo"
+              >
+              </lord-icon>
+              <h3>Référencement</h3>
+              <ul>
+                <li>SEO technique</li>
+                <li>Analyse des mots-clés</li>
+                <li>Optimisation du contenu pour moteurs de recherche</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
-      <section>
-        <h2>Votre projet, étape par étape</h2>
-        <p>
-          Un accompagnement clair pour vous guider de l’idée à la livraison.
-        </p>
+      <section id="action-plan">
+        <div class="section-max-width">
+          <h2>Votre projet, étape par étape</h2>
+          <p>
+            Un accompagnement clair pour vous guider de l’idée à la livraison.
+          </p>
+        </div>
       </section>
-      <section>
-        <h2>Pourquoi choisir Kōji ?</h2>
+      <section id="why-koji">
+        <div class="section-max-width"><h2>Pourquoi choisir Kōji ?</h2></div>
       </section>
-      <section>
-        <h2>Contact</h2>
+      <section id="contact">
+        <div class="section-max-width"><h2>Contact</h2></div>
       </section>
     </main>
 
     <footer>
       <div class="footer-colomns">
-        <div>
+        <div class="footer-logo-div">
           <div>
             <img
-              src="/src/assets/images/koji-logo.png"
+              src="/src/assets/images/logos/koji-logo.png"
               alt="Logo Koji"
               class="koji-logo"
             /><span>Kōji</span>
           </div>
-          <p>Développement web front-end</p>
+          <strong>Développement web front-end</strong>
           <p>Création de sites web personnalisés, performants et passionnés</p>
         </div>
-        <div>
+        <div class="footer-links">
           <span>Liens utiles</span>
           <nav>
-            <a href="#" class="sweeping-underline">Accueil</a>
-            <a href="/about.html" class="sweeping-underline">A propos</a>
-            <a href="#" class="sweeping-underline">Services</a>
-            <a href="/portfolio.html" class="sweeping-underline">Portfolio</a>
-            <a href="#" class="sweeping-underline">Contact</a>
-            <a href="/legal-notice.html" class="sweeping-underline"
-              >Mention légales et politique de confidentialité</a
+            <a href="#" class="link-with-animated-icon"
+              ><lord-icon
+                src="https://cdn.lordicon.com/cnpvyndp.json"
+                trigger="hover"
+                colors="primary:#f97316"
+                target=".link-with-animated-icon"
+                style="width: 30px; height: 30px; margin-right: 10px"
+              >
+              </lord-icon>
+              <span class="sweeping-underline">Accueil</span></a
+            >
+            <a href="/about.html" class="link-with-animated-icon"
+              ><lord-icon
+                src="https://cdn.lordicon.com/yxczfiyc.json"
+                trigger="hover"
+                colors="primary:#f97316"
+                target=".link-with-animated-icon"
+                style="width: 30px; height: 30px; margin-right: 10px"
+              >
+              </lord-icon
+              ><span class="sweeping-underline">A propos</span></a
+            >
+            <a href="#" class="link-with-animated-icon"
+              ><lord-icon
+                src="https://cdn.lordicon.com/pflszboa.json"
+                trigger="hover"
+                colors="primary:#f97316"
+                target=".link-with-animated-icon"
+                style="width: 30px; height: 30px; margin-right: 10px"
+              >
+              </lord-icon
+              ><span class="sweeping-underline">Mes services</span></a
+            >
+            <a href="/portfolio.html" class="link-with-animated-icon"
+              ><lord-icon
+                src="https://cdn.lordicon.com/jkzgajyr.json"
+                trigger="hover"
+                colors="primary:#f97316"
+                target=".link-with-animated-icon"
+                style="width: 30px; height: 30px; margin-right: 10px"
+              >
+              </lord-icon
+              ><span class="sweeping-underline">Portfolio</span></a
+            >
+            <a href="#" class="link-with-animated-icon"
+              ><lord-icon
+                src="https://cdn.lordicon.com/kthelypq.json"
+                trigger="hover"
+                colors="primary:#f97316"
+                target=".link-with-animated-icon"
+                style="width: 30px; height: 30px; margin-right: 10px"
+              >
+              </lord-icon
+              ><span class="sweeping-underline">Contact</span></a
+            >
+            <a href="/legal-notice.html" class="link-with-animated-icon"
+              ><lord-icon
+                src="https://cdn.lordicon.com/zyzoecaw.json"
+                trigger="morph"
+                state="morph-book"
+                colors="primary:#f97316"
+                target=".link-with-animated-icon"
+                style="width: 30px; height: 30px; margin-right: 10px"
+              >
+              </lord-icon
+              ><span class="sweeping-underline">Mention légale</span>s</a
             >
           </nav>
         </div>
-        <div>
+        <div class="footer-contact">
           <span>Contact</span>
-          <a href="mailto:contact@koji-dev.fr" class="sweeping-underline"
-            >contact@koji-dev.fr</a
+          <a href="mailto:contact@koji-dev.fr" class="link-with-animated-icon">
+            <lord-icon
+              src="https://cdn.lordicon.com/nzixoeyk.json"
+              trigger="hover"
+              colors="primary:#f97316"
+              target=".link-with-animated-icon"
+              style="width: 30px; height: 30px; margin-right: 10px"
+            >
+            </lord-icon
+            ><span class="sweeping-underline">contact@koji-dev.fr</span></a
           >
 
-          logo linkedin + github
+          <a href="https://www.linkedin.com/in/maelle-nioche/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              fill="#000000"
+              version="1.1"
+              id="Capa_1"
+              viewBox="-7.82 -7.82 113.39 113.39"
+              xml:space="preserve"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path
+                    d="M48.875,0C21.882,0,0,21.882,0,48.875S21.882,97.75,48.875,97.75S97.75,75.868,97.75,48.875S75.868,0,48.875,0z M30.562,81.966h-13.74V37.758h13.74V81.966z M23.695,31.715c-4.404,0-7.969-3.57-7.969-7.968c0.001-4.394,3.565-7.964,7.969-7.964 c4.392,0,7.962,3.57,7.962,7.964C31.657,28.146,28.086,31.715,23.695,31.715z M82.023,81.966H68.294V60.467 c0-5.127-0.095-11.721-7.142-11.721c-7.146,0-8.245,5.584-8.245,11.35v21.869H39.179V37.758h13.178v6.041h0.185 c1.835-3.476,6.315-7.14,13-7.14c13.913,0,16.481,9.156,16.481,21.059V81.966z"
+                  />
+                </g>
+              </g>
+            </svg>
+            <span class="sweeping-underline"
+              >linkedin.com/in/maelle-nioche</span
+            ></a
+          ><a href="https://github.com/MaelleN95">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#000000"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22,12.247a10,10,0,0,1-6.833,9.488c-.507.1-.687-.214-.687-.481,0-.328.012-1.407.012-2.743a2.386,2.386,0,0,0-.679-1.852c2.228-.248,4.566-1.093,4.566-4.935a3.859,3.859,0,0,0-1.028-2.683,3.591,3.591,0,0,0-.1-2.647s-.838-.269-2.747,1.025a9.495,9.495,0,0,0-5.007,0c-1.91-1.294-2.75-1.025-2.75-1.025a3.6,3.6,0,0,0-.1,2.647A3.864,3.864,0,0,0,5.62,11.724c0,3.832,2.334,4.69,4.555,4.942A2.137,2.137,0,0,0,9.54,18a2.128,2.128,0,0,1-2.91-.831A2.1,2.1,0,0,0,5.1,16.142s-.977-.013-.069.608A2.646,2.646,0,0,1,6.14,18.213s.586,1.944,3.368,1.34c.005.835.014,1.463.014,1.7,0,.265-.183.574-.683.482A10,10,0,1,1,22,12.247Z"
+              />
+            </svg>
+            <span class="sweeping-underline">github.com/MaelleN95</span>
+          </a>
         </div>
       </div>
-      © 2025. All rights reserved.
+      <span class="copyright">© 2025. All rights reserved.</span>
     </footer>
 
     <label for="theme-toggle" class="theme-toggle">
