@@ -20,6 +20,14 @@ body {
   padding: 0;
 }
 
+section:not(#koji-home) {
+  padding: 1rem 0 4rem 0;
+}
+
+section h2 ~ p {
+  text-align: center;
+}
+
 .section-max-width,
 .footer-colomns {
   max-width: 1300px;
@@ -209,7 +217,7 @@ a:hover {
   padding: 1.5rem;
   margin: 0.75rem;
   border-radius: 10px;
-  background-color: var(--gris-clair);
+  background-color: var(--gris-moyen);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.05);
 }
@@ -227,6 +235,138 @@ a:hover {
   width: 100px;
   height: 100px;
   margin: 0 auto;
+}
+
+/* SECTION ACTION PLAN */
+
+.steps-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 158px;
+}
+
+.steps-container h3 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.step lord-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.step-icon {
+  position: relative;
+  width: 95px;
+  height: 95px;
+  background-color: var(--gris-clair);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.step-icon p {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -20px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  background-color: var(--orange);
+  font-weight: bold;
+}
+
+.step-details {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.step:hover .step-details {
+  opacity: 1;
+  visibility: visible;
+  max-height: 200px;
+  margin-top: 0.2rem;
+  transform: translateY(0);
+}
+
+/* SECTION WHY KOJI */
+
+#why-koji {
+  background-color: var(--gris-clair);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+#why-koji h2 {
+  font-size: 2.5rem;
+  color: var(--bleu-fonce);
+}
+
+.why-koji-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.why-koji-item {
+  background-color: var(--gris-moyen);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-koji-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.why-koji-item .icon {
+  font-size: 2.5rem;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.why-koji-item h3 {
+  font-size: 1.5rem;
+  color: var(--bleu-fonce);
+  margin-bottom: 0.5rem;
+}
+
+.why-koji-item p {
+  font-size: 1rem;
+  color: var(--gris-fonce);
+  line-height: 1.6;
+}
+
+.cta-text {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: var(--bleu-fonce);
+  font-weight: bold;
 }
 
 /* FOOTER */
@@ -384,6 +524,18 @@ footer {
 [data-theme='light'] {
   color-scheme: light;
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--bleu-fonce);
+  }
+
+  body {
+    background-color: var(--gris-clair);
+    color: var(--bleu-fonce);
+  }
+
   .koji-logo {
     filter: brightness(0);
   }
@@ -402,6 +554,14 @@ footer {
       117deg,
       rgba(242, 243, 245, 1) 0%,
       rgba(220, 223, 228, 1) 100%
+    );
+  }
+
+  #action-plan {
+    background: linear-gradient(
+      320deg,
+      rgba(242, 243, 245, 1) 0%,
+      rgb(201, 208, 219) 100%
     );
   }
 }
@@ -430,6 +590,18 @@ footer {
   .service-card {
     background-color: var(--gris-fonce);
     color: var(--gris-clair);
+  }
+
+  #action-plan {
+    background: linear-gradient(
+      320deg,
+      rgb(58, 79, 105) 0%,
+      rgb(34, 46, 66) 100%
+    );
+  }
+
+  .step-icon {
+    background-color: var(--gris-moyen);
   }
 }
 
