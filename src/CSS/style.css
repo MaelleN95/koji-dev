@@ -12,6 +12,10 @@
   --inter: 'Inter', sans-serif;
 }
 
+html {
+  scrollbar-color: var(--vert) var(--bleu-fonce);
+}
+
 body {
   font-family: var(--inter);
   font-size: 1.2rem;
@@ -141,7 +145,7 @@ a:hover {
 .animated-card {
   --card-width: 100%;
   --card-height: 425px;
-  --animation-time: 14s;
+  --animation-time: 15s;
   padding: 0;
   margin: 0;
 
@@ -183,6 +187,10 @@ a:hover {
   background-color: var(--orange);
 
   animation: edge-bounce var(--animation-time) linear infinite;
+}
+
+.animated-card:hover .animated-blob {
+  animation-play-state: paused;
 }
 
 .blob-green {
@@ -315,10 +323,12 @@ a:hover {
 /* SECTION ACTION PLAN */
 
 .steps-container {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-around;
+  padding-bottom: 40px;
 }
 
 .step {
@@ -367,15 +377,21 @@ a:hover {
 }
 
 .step-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
   opacity: 0;
   visibility: hidden;
   max-height: 0;
   overflow: hidden;
   margin: 0;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transform: translateY(-10px);
   transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .step:hover .step-details {
