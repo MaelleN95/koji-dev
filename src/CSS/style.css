@@ -2,7 +2,7 @@
 
 :root {
   --gris-clair: #f2f3f5;
-  --gris-moyen: #dcdfe4;
+  --gris-moyen: rgba(220, 223, 228, 1);
   --gris-fonce: #677182;
   --bleu-fonce: #1e293b;
   --orange: #f97316;
@@ -136,6 +136,81 @@ a:hover {
 
 .sweeping-underline:hover::after {
   width: 100%;
+}
+
+.animated-card {
+  --card-width: 100%;
+  --card-height: 425px;
+  --animation-time: 14s;
+  padding: 0;
+  margin: 0;
+
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.animated-card-content {
+  --content-width: calc(var(--card-width) - 6px);
+  --content-height: calc(var(--card-height) - 6px);
+  width: var(--content-width);
+  height: var(--content-height);
+
+  z-index: 1;
+  border-radius: 12px;
+
+  backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.animated-blob {
+  --circle-size: 180px;
+  --half-circle: calc(var(--circle-size) / 2);
+
+  position: absolute;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  background-color: var(--orange);
+
+  animation: edge-bounce var(--animation-time) linear infinite;
+}
+
+.blob-green {
+  background-color: var(--vert);
+  animation-delay: calc(var(--animation-time) / -2);
+}
+
+@keyframes edge-bounce {
+  0% {
+    top: calc(0% - var(--half-circle));
+    left: calc(0% - var(--half-circle));
+  }
+  25% {
+    top: calc(0% - var(--half-circle));
+    left: calc(100% - var(--half-circle));
+  }
+  50% {
+    top: calc(100% - var(--half-circle));
+    left: calc(100% - var(--half-circle));
+  }
+  75% {
+    top: calc(100% - var(--half-circle));
+    left: calc(0% - var(--half-circle));
+  }
+  100% {
+    top: calc(0% - var(--half-circle));
+    left: calc(0% - var(--half-circle));
+  }
 }
 
 .cta-btn {
@@ -313,60 +388,48 @@ a:hover {
 
 /* SECTION WHY KOJI */
 
-#why-koji {
-  background-color: var(--gris-clair);
-  padding: 4rem 2rem;
+#why-koji h3 {
   text-align: center;
 }
 
-#why-koji h2 {
-  font-size: 2.5rem;
-  color: var(--bleu-fonce);
-}
-
-.why-koji-content {
+.reasons {
+  padding: 2rem 0 1rem 0;
+  margin: 0;
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
 }
 
-.why-koji-item {
-  background-color: var(--gris-moyen);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.reasons .animated-card-content {
+  background-color: rgba(220, 223, 228, 0.95);
 }
 
-.why-koji-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.reason {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
 }
 
-.why-koji-item .icon {
-  font-size: 2.5rem;
-  color: var(--orange);
-  margin-bottom: 1rem;
-}
-
-.why-koji-item h3 {
-  font-size: 1.5rem;
-  color: var(--bleu-fonce);
-  margin-bottom: 0.5rem;
-}
-
-.why-koji-item p {
+.reason p {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+  text-align: center;
   font-size: 1rem;
-  color: var(--gris-fonce);
-  line-height: 1.6;
+  transform: translateY(-10px);
+  transition: all 0.5s ease;
 }
 
-.cta-text {
-  margin-top: 2rem;
-  font-size: 1.2rem;
-  color: var(--bleu-fonce);
-  font-weight: bold;
+.reasons .animated-card-content:hover p {
+  opacity: 1;
+  visibility: visible;
+  max-height: 200px;
+  margin-top: 0.2rem;
+  transform: translateY(0);
 }
 
 /* FOOTER */
@@ -530,6 +593,9 @@ footer {
   h4 {
     color: var(--bleu-fonce);
   }
+  ul {
+    color: var(--bleu-fonce);
+  }
 
   body {
     background-color: var(--gris-clair);
@@ -580,6 +646,10 @@ footer {
     color: var(--gris-clair);
   }
 
+  ul {
+    color: var(--gris-clair);
+  }
+
   h1,
   h2,
   h3,
@@ -588,7 +658,7 @@ footer {
   }
 
   .service-card {
-    background-color: var(--gris-fonce);
+    background-color: rgba(58, 79, 105, 0.95);
     color: var(--gris-clair);
   }
 
@@ -602,6 +672,14 @@ footer {
 
   .step-icon {
     background-color: var(--gris-moyen);
+  }
+
+  #why-koji .animated-card-content {
+    background-color: rgba(58, 79, 105, 0.95);
+  }
+  #why-koji,
+  #services {
+    --lord-icon-primary: var(--gris-moyen);
   }
 }
 
