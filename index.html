@@ -87,9 +87,9 @@
       <nav>
         <a href="#" class="sweeping-underline">Accueil</a>
         <a href="about.html" class="sweeping-underline">A propos</a>
-        <a href="#" class="sweeping-underline">Mes services</a>
+        <a href="#services" class="sweeping-underline">Mes services</a>
         <a href="portfolio.html" class="sweeping-underline">Portfolio</a>
-        <a href="#" class="sweeping-underline">Contact</a>
+        <a href="#contact" class="sweeping-underline">Contact</a>
       </nav>
     </header>
     <main>
@@ -366,7 +366,54 @@
         </div>
       </section>
       <section id="contact">
-        <div class="section-max-width"><h2>Contact</h2></div>
+        <div class="section-max-width">
+          <h2>Contact</h2>
+          <p>
+            Vous avez une question, une idée de projet ou simplement envie d’en
+            discuter ?
+          </p>
+          <form class="form" action="">
+            <div class="input-field">
+              <input
+                required
+                autocomplete="off"
+                type="text"
+                name="text"
+                id="name"
+                placeholder=" "
+              />
+              <label for="name">Nom / prénom *</label>
+            </div>
+            <div class="input-field">
+              <input
+                required
+                autocomplete="off"
+                type="email"
+                name="email"
+                id="email"
+                placeholder=" "
+              />
+              <label for="email">Email *</label>
+            </div>
+            <div class="input-field">
+              <input
+                required
+                autocomplete="off"
+                type="msg"
+                name="text"
+                id="msg"
+                placeholder=" "
+              />
+              <label for="msg">Message *</label>
+            </div>
+
+            <div class="btn-container">
+              <button class="cta-btn">
+                <span class="sweeping-underline">Submit</span>
+              </button>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
 

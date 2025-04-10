@@ -263,15 +263,6 @@ a:hover {
 
 /* SECTION HOME */
 
-#koji-home {
-  background: var(--bleu-fonce);
-  background: linear-gradient(
-    160deg,
-    rgb(49, 67, 89) 0%,
-    rgba(30, 41, 59, 1) 100%
-  );
-}
-
 #koji-home .section-max-width {
   display: flex;
   align-items: center;
@@ -448,6 +439,81 @@ a:hover {
   transform: translateY(0);
 }
 
+/* SECTION CONTACT */
+
+.form {
+  margin: auto;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form .btn-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form .cta-btn {
+  padding: 12px 40px;
+}
+
+.input-field {
+  position: relative;
+}
+
+.input-field label {
+  position: absolute;
+  color: var(--gris-fonce);
+  pointer-events: none;
+  background-color: transparent;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+#contact input {
+  color: var(--bleu-fonce);
+}
+
+.input-field input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: solid 2px var(--gris-moyen);
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+.input-field input:focus,
+.input-field input:valid {
+  outline: none;
+  border: solid 2px var(--vert);
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+  transform: translateY(-120%) translateX(-10px) scale(0.8);
+  background-color: #fff;
+  padding: 0px 5px;
+  color: var(--bleu-fonce);
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 100px;
+}
+
+.input-field input:invalid:not(:placeholder-shown) ~ label {
+  transform: translateY(-120%) translateX(-10px) scale(0.8);
+}
+
+.form .close {
+  display: none;
+}
+
 /* FOOTER */
 
 footer {
@@ -456,7 +522,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1rem 0 0 0;
+  margin: 0;
   padding: 1rem 3rem;
   color: var(--gris-clair);
   background-color: var(--bleu-fonce);
@@ -631,7 +697,8 @@ footer {
     filter: none;
   }
 
-  #koji-home {
+  #koji-home,
+  #contact {
     background: linear-gradient(
       117deg,
       rgba(242, 243, 245, 1) 0%,
@@ -671,6 +738,16 @@ footer {
   h3,
   h4 {
     color: var(--gris-clair);
+  }
+
+  #koji-home,
+  #contact {
+    background: var(--bleu-fonce);
+    background: linear-gradient(
+      160deg,
+      rgb(49, 67, 89) 0%,
+      rgba(30, 41, 59, 1) 100%
+    );
   }
 
   .service-card {
