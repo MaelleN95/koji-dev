@@ -926,8 +926,8 @@ footer {
 /*        RESPONSIVE STYLES      */
 /* ============================== */
 
-/* Small desktop (max-width: 1024px) */
-@media (max-width: 1024px) {
+/* Desktop - 1025 > 1330 (max-width: 1330px) */
+@media (max-width: 1330px) {
   h1 {
     font-size: 2.75rem;
   }
@@ -945,7 +945,27 @@ footer {
   }
 
   body {
-    font-size: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .section-max-width {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  header {
+    padding: 1rem 1.5rem;
+  }
+
+  header nav a {
+    font-size: 1.1rem;
+    margin: 0 1.3rem;
+  }
+
+  .koji-netsu {
+    width: 42vw;
+    margin-top: 10rem;
+    margin-right: 2rem;
   }
 
   .cta-btn {
@@ -964,7 +984,7 @@ footer {
   }
 }
 
-/* Tablet (max-width: 768px) */
+/* Tablet - 769 > 1024 (max-width: 1024px) */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.25rem;
@@ -1009,7 +1029,7 @@ footer {
   }
 }
 
-/* Mobile (max-width: 480px) */
+/* Small tablet - 481 - 768 (max-width: 768px) */
 @media (max-width: 480px) {
   h1 {
     font-size: 1.75rem;
@@ -1050,3 +1070,5 @@ footer {
     height: 22px;
   }
 }
+
+/* Mobile - 320 - 480 (max-width: 480px) */
