@@ -459,6 +459,7 @@ a:hover {
   gap: 1rem;
   background-color: var(--gris-clair);
   padding: 2rem;
+  padding-top: calc(2rem + 1.2rem);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -477,13 +478,23 @@ a:hover {
   justify-content: center;
 }
 
-.form .cta-btn {
+.form .submit-btn {
   padding: 12px 40px;
   background-color: var(--orange);
   color: var(--gris-clair);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
-.form .cta-btn:hover {
+.form .submit-btn:disabled {
+  background-color: var(--gris-clair);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form .submit-btn:hover {
   background-color: var(--vert);
   color: #1e293b;
   border-color: var(--vert);
@@ -581,6 +592,18 @@ textarea:-webkit-autofill,
 select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px var(--gris-clair) inset;
   -webkit-text-fill-color: var(--gris-fonce);
+}
+
+#submit-btn-icon {
+  opacity: 1;
+  width: 30px;
+  height: 30px;
+  transition: opacity 1s ease;
+}
+
+#form-state-info {
+  margin: 0;
+  height: 1.2rem;
 }
 
 /* FOOTER */
@@ -729,6 +752,47 @@ footer {
 
 #theme-toggle:checked + .icon--sun {
   transform: rotate(180deg) scale(0);
+}
+
+/* Loader */
+
+.loader {
+  --loader-size: 30px;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  display: grid;
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  grid-area: 1/1;
+  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
+    var(--c) 0 50%;
+  background-size: calc(var(--loader-size) / 5) calc(var(--loader-size) / 5);
+  background-repeat: no-repeat;
+  animation: loader3hs4a3 1s infinite;
+}
+
+.loader:before {
+  --c: radial-gradient(farthest-side, var(--vert) 92%, #0000);
+  margin: 3px;
+  background-size: calc(var(--loader-size) / 6) calc(var(--loader-size) / 6);
+  animation-timing-function: linear;
+}
+
+.loader:after {
+  --c: radial-gradient(farthest-side, var(--orange) 92%, #0000);
+}
+
+@keyframes loader3hs4a3 {
+  100% {
+    transform: rotate(0.5turn);
+  }
+}
+
+.hidden {
+  display: none;
 }
 
 /* TEMPORARY FOR THE MAINTENANCE PAGE */
