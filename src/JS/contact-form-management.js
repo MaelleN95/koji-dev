@@ -6,21 +6,22 @@ document.addEventListener('DOMContentLoaded', function () {
   const submitBtn = document.querySelector('.submit-btn');
   const submitBtnText = submitBtn.querySelector('.submit-btn-text');
   const submitBtnIcon = document.getElementById('submit-btn-icon');
+  const formStateInfo = document.getElementById('form-state-info');
 
   const iconContent = (state) => {
-    if ((state = 'check')) {
+    if (state === 'check') {
       submitBtnIcon.innerHTML = `<lord-icon
         src="https://cdn.lordicon.com/lomfljuq.json"
         trigger="in"
         state="in-check"
-        colors="primary:#1e293b"
+        colors="primary:#f97316"
       </lord-icon>`;
-    } else if ((state = 'cross')) {
+    } else if (state === 'cross') {
       submitBtnIcon.innerHTML = `<lord-icon
         src="https://cdn.lordicon.com/zxvuvcnc.json"
         trigger="in"
         state="in-cross"
-        colors="primary:#1e293b"
+        colors="primary:#f97316"
       </lord-icon>`;
     }
   };
@@ -35,7 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const handleResponse = (success) => {
     const state = success ? 'check' : 'cross';
     showIcon(state);
-    form.reset();
+    const successMessage = `Votre message a été envoyé avec succès !`;
+    const errorMessage = `Une erreur est survenue lors de l'envoi du message.<br/>Veuillez réessayer plus tard.`;
+    formStateInfo.innerHTML = success ? successMessage : errorMessage;
+    if (success) {
+      form.reset();
+    }
   };
 
   const resetButton = () => {

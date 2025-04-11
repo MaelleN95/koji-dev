@@ -459,7 +459,7 @@ a:hover {
   gap: 1rem;
   background-color: var(--gris-clair);
   padding: 2rem;
-  padding-top: calc(2rem + 1.2rem);
+  padding-top: 3.5rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -476,10 +476,11 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 0.5rem;
 }
 
 .form .submit-btn {
-  padding: 12px 40px;
+  padding: 12px 60px;
   background-color: var(--orange);
   color: var(--gris-clair);
   display: flex;
@@ -603,7 +604,10 @@ select:-webkit-autofill {
 
 #form-state-info {
   margin: 0;
-  height: 1.2rem;
+  height: 1.4rem;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--bleu-fonce);
 }
 
 /* FOOTER */
