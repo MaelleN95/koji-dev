@@ -24,6 +24,12 @@ body {
   padding: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 section:not(#koji-home) {
   padding: 1rem 0 4rem 0;
 }
@@ -248,9 +254,10 @@ a:hover {
   transform: scale(0.95);
 }
 
-.cta-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px #f97416b1;
+.cta-btn:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+  transition: none;
 }
 
 .cta-btn:hover .sweeping-underline::after {
@@ -443,10 +450,24 @@ a:hover {
 
 .form {
   margin: auto;
-  max-width: 500px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  background-color: var(--gris-clair);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form .name-email {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 1rem;
 }
 
 .form .btn-container {
@@ -458,10 +479,19 @@ a:hover {
 
 .form .cta-btn {
   padding: 12px 40px;
+  background-color: var(--orange);
+  color: var(--gris-clair);
+}
+
+.form .cta-btn:hover {
+  background-color: var(--vert);
+  color: #1e293b;
+  border-color: var(--vert);
 }
 
 .input-field {
   position: relative;
+  width: 100%;
 }
 
 .input-field label {
@@ -475,30 +505,49 @@ a:hover {
   transition: all 0.3s ease;
 }
 
-#contact input {
-  color: var(--bleu-fonce);
+.textarea-field label {
+  top: 20px;
 }
 
-.input-field input {
-  padding: 10px 15px;
+.input-field input,
+.input-field textarea {
   font-size: 1rem;
   border-radius: 8px;
-  border: solid 2px var(--gris-moyen);
+  border: solid 2px #8f99ab;
   letter-spacing: 1px;
   width: 100%;
+  padding: 10px 15px;
+  background-color: var(--gris-clair);
+}
+
+.input-field textarea {
+  resize: vertical;
+  min-height: 62px;
+  max-height: 300px;
 }
 
 .input-field input:focus,
-.input-field input:valid {
+.input-field textarea:focus {
+  outline: none;
+  border: solid 2px var(--bleu-fonce);
+  color: var(--bleu-fonce);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.input-field input:valid,
+.input-field textarea:valid {
   outline: none;
   border: solid 2px var(--vert);
 }
 
 .input-field input:focus ~ label,
-.input-field input:valid ~ label {
-  transform: translateY(-120%) translateX(-10px) scale(0.8);
-  background-color: #fff;
-  padding: 0px 5px;
+.input-field input:valid ~ label,
+.input-field textarea:focus ~ label,
+.input-field textarea:valid ~ label {
+  transform: translateY(-120%) translateX(-15px) scale(0.8);
+  background: var(--gris-clair);
+  padding: 0px 10px;
   color: var(--bleu-fonce);
   font-weight: bold;
   letter-spacing: 1px;
@@ -506,12 +555,32 @@ a:hover {
   border-radius: 100px;
 }
 
-.input-field input:invalid:not(:placeholder-shown) ~ label {
-  transform: translateY(-120%) translateX(-10px) scale(0.8);
+.input-field textarea:focus ~ label,
+.input-field textarea:valid ~ label {
+  top: 20px;
 }
 
-.form .close {
-  display: none;
+.input-field input:invalid:not(:placeholder-shown) {
+  border: solid 2px var(--orange);
+}
+
+.input-field input:invalid:not(:placeholder-shown) ~ label {
+  transform: translateY(-120%) translateX(-10px) scale(0.8);
+  background: var(--gris-clair);
+  padding: 0px 10px;
+  color: var(--orange);
+}
+
+.input-field textarea:invalid:not(:placeholder-shown) ~ label {
+  top: 20px;
+}
+
+/* Autofill styles for webkit browsers */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px var(--gris-clair) inset;
+  -webkit-text-fill-color: var(--gris-fonce);
 }
 
 /* FOOTER */
@@ -773,6 +842,15 @@ footer {
   #why-koji,
   #services {
     --lord-icon-primary: var(--gris-moyen);
+  }
+
+  .form {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  .input-field input,
+  .input-field textarea {
+    color: var(--bleu-fonce);
   }
 }
 
