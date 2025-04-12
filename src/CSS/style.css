@@ -289,7 +289,7 @@ a:hover {
 
 .services-card-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
 }
 
 .service-card {
@@ -368,8 +368,8 @@ a:hover {
   align-items: center;
   left: -20px;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  width: 37px;
+  height: 37px;
   background-color: var(--orange);
   font-weight: bold;
 }
@@ -386,7 +386,6 @@ a:hover {
   overflow: hidden;
   margin: 0;
   text-align: center;
-  font-size: 1.2rem;
   transform: translateY(-10px);
   transition: all 0.3s ease;
   pointer-events: none;
@@ -411,7 +410,7 @@ a:hover {
   margin: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
@@ -444,6 +443,11 @@ a:hover {
   max-height: 200px;
   margin-top: 0.2rem;
   transform: translateY(0);
+}
+
+#why-koji lord-icon {
+  width: 250px;
+  height: 250px;
 }
 
 /* SECTION CONTACT */
@@ -490,7 +494,7 @@ a:hover {
 }
 
 .form .submit-btn:disabled {
-  background-color: var(--gris-clair);
+  background-color: transparent;
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -613,7 +617,6 @@ select:-webkit-autofill {
 /* FOOTER */
 
 footer {
-  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -687,6 +690,12 @@ footer {
   justify-content: center;
 }
 
+footer lord-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
 .link-with-animated-icon:hover {
   --lord-icon-primary: var(--vert);
 }
@@ -724,6 +733,7 @@ footer {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
+  z-index: 5;
 }
 
 #theme-toggle {
@@ -937,7 +947,7 @@ footer {
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   h4 {
@@ -953,7 +963,8 @@ footer {
     padding-right: 3rem;
   }
 
-  header {
+  header,
+  footer {
     padding: 1rem 1.5rem;
   }
 
@@ -982,10 +993,36 @@ footer {
     width: 28px;
     height: 28px;
   }
+
+  .service-card {
+    padding: 0.7rem;
+    margin: 0.5rem;
+  }
+
+  .service-card h3 {
+    padding-top: 0.9rem;
+  }
+
+  .service-card ul {
+    padding-left: 2rem;
+  }
+  .service-card lord-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  #why-koji lord-icon {
+    width: 150px;
+    height: 150px;
+  }
+
+  .animated-card {
+    --card-height: 350px;
+  }
 }
 
 /* Tablet - 769 > 1024 (max-width: 1024px) */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   h1 {
     font-size: 2.25rem;
     letter-spacing: -0.05rem;
@@ -1001,19 +1038,129 @@ footer {
 
   body {
     font-size: 1rem;
-    padding: 0 1rem;
+  }
+
+  .section-max-width {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .koji-logo {
+    width: 50px;
+  }
+
+  header,
+  footer {
+    padding: 0.8rem 1.5rem;
+  }
+
+  header nav a {
+    font-size: 0.9rem;
+    margin: 0 0.8rem;
+  }
+
+  .koji-netsu {
+    width: 42vw;
+    margin-top: 9rem;
+    margin-right: 0rem;
   }
 
   .cta-btn {
     font-size: 1rem;
-    padding: 8px 16px;
   }
 
-  footer {
-    font-size: 1rem;
-    padding: 0 1rem;
-    text-align: center;
-    flex-direction: column;
+  #koji-home .cta-btn {
+    margin-top: 0.5rem;
+  }
+
+  .services-card-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-card {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .steps-container {
+    padding-bottom: 30px;
+    padding-top: 15px;
+  }
+
+  .steps-container h3 {
+    font-size: 0.9rem;
+  }
+
+  .step-icon {
+    position: relative;
+    width: 85px;
+    height: 85px;
+  }
+
+  .step-icon p {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+    left: -15px;
+  }
+
+  #why-koji lord-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .animated-card {
+    --card-height: 290px;
+  }
+
+  .form .submit-btn {
+    padding: 10px 50px;
+  }
+
+  .footer-logo-div {
+    max-width: 310px;
+  }
+
+  .footer-logo-div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-logo-div > p {
+    margin: 0.8rem 0;
+  }
+
+  .footer-logo-div img {
+    width: 74px;
+  }
+
+  .footer-logo-div span {
+    letter-spacing: -0.01rem;
+    margin-left: 1rem;
+  }
+
+  .footer-links nav a,
+  .footer-contact a {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  footer lord-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+
+  .footer-contact a svg {
+    width: 20px;
+    margin-right: 10px;
+    fill: currentColor;
+  }
+
+  .copyright {
+    font-size: 0.7rem;
   }
 
   .theme-toggle {
@@ -1030,7 +1177,7 @@ footer {
 }
 
 /* Small tablet - 481 - 768 (max-width: 768px) */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   h1 {
     font-size: 1.75rem;
     letter-spacing: -0.03rem;
@@ -1050,19 +1197,126 @@ footer {
 
   body {
     font-size: 0.95rem;
-    padding: 0 0.75rem;
+  }
+
+  #koji-home .section-max-width {
+    flex-direction: column-reverse;
+  }
+
+  #koji-home .section-max-width div {
+    width: 100%;
+    padding: 3rem 0;
+  }
+
+  .koji-netsu {
+    width: 415px;
+    margin-top: 0;
+    margin-right: 0;
   }
 
   .cta-btn {
     font-size: 0.95rem;
-    padding: 8px 14px;
+    padding: 8px 20px;
   }
 
-  footer {
-    font-size: 0.875rem;
-    padding: 0 0.5rem;
-    text-align: center;
+  .service-card {
+    padding: 0.7rem;
+  }
+
+  .service-card ul {
+    padding-left: 5vw;
+  }
+
+  .service-card lord-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .steps-container {
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding-bottom: 0;
+  }
+
+  .steps-container h3 {
+    font-size: 1.1rem;
+  }
+
+  .step {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-bottom: 7rem;
+  }
+
+  .step-icon {
+    width: 150px;
+    height: 150px;
+  }
+
+  .step lord-icon {
+    width: 85px;
+    height: 85px;
+  }
+
+  .step-icon p {
+    top: -35px;
+    left: unset;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .step-details {
+    position: relative;
+    left: unset;
+    bottom: unset;
+    opacity: 1;
+    visibility: visible;
+    transform: unset;
+    overflow: unset;
+    max-width: 370px;
+  }
+
+  .reasons {
+    padding: 2rem 0 1rem 0;
+    margin: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  #why-koji h3 {
+    font-size: 1.2rem;
+  }
+
+  #contact .name-email {
+    grid-template-columns: 1fr;
+  }
+
+  .input-field textarea {
+    min-height: 150px;
+    max-height: 300px;
+  }
+
+  .footer-colomns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 1rem;
+    gap: 3rem;
+  }
+
+  .footer-logo-div {
+    margin: auto;
+    max-width: 100%;
+  }
+
+  .footer-section-title {
+    font-size: 1.2rem;
   }
 
   .icon {
@@ -1072,3 +1326,61 @@ footer {
 }
 
 /* Mobile - 320 - 480 (max-width: 480px) */
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+    letter-spacing: -0.02rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  h4 {
+    font-size: 0.9rem;
+  }
+
+  body {
+    font-size: 0.9rem;
+  }
+
+  header nav a {
+    font-size: 0.8rem;
+    margin: 0 0.5rem;
+  }
+
+  .services-card-section {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card ul {
+    padding-left: 7vw;
+  }
+
+  .koji-netsu {
+    width: 100%;
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  .animated-card {
+    --card-height: 300px;
+  }
+
+  .form .submit-btn {
+    padding: 10px 30px;
+  }
+
+  .footer-logo-div span {
+    font-size: 2rem;
+  }
+
+  .koji-logo {
+    /* display: none; */
+  }
+}
