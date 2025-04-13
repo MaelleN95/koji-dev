@@ -31,7 +31,7 @@ body {
   box-sizing: border-box;
 }
 
-section:not(#koji-home) {
+section:not(#koji-home):not(#presentation) {
   padding: 1rem 0 4rem 0;
 }
 
@@ -458,7 +458,7 @@ a:hover {
   transform: translateY(0);
 }
 
-#why-koji lord-icon {
+.reasons lord-icon {
   width: 250px;
   height: 250px;
 }
@@ -930,7 +930,8 @@ footer lord-icon {
   }
 
   #koji-home,
-  #contact {
+  #contact,
+  #presentation {
     background: linear-gradient(
       117deg,
       rgba(242, 243, 245, 1) 0%,
@@ -973,7 +974,8 @@ footer lord-icon {
   }
 
   #koji-home,
-  #contact {
+  #contact,
+  #presentation {
     background: var(--bleu-fonce);
     background: linear-gradient(
       160deg,
@@ -999,11 +1001,13 @@ footer lord-icon {
     background-color: var(--gris-moyen);
   }
 
-  #why-koji .animated-card-content {
+  .reasons .animated-card-content {
     background-color: rgba(58, 79, 105, 0.95);
   }
+
   #why-koji,
-  #services {
+  #services,
+  #values {
     --lord-icon-primary: var(--gris-moyen);
   }
 
@@ -1096,7 +1100,7 @@ footer lord-icon {
     height: 80px;
   }
 
-  #why-koji lord-icon {
+  .reasons lord-icon {
     width: 150px;
     height: 150px;
   }
@@ -1188,7 +1192,7 @@ footer lord-icon {
     left: -15px;
   }
 
-  #why-koji lord-icon {
+  .reasons lord-icon {
     width: 100px;
     height: 100px;
   }
