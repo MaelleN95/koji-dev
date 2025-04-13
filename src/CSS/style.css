@@ -14,6 +14,7 @@
 
 html {
   scrollbar-color: var(--vert) var(--bleu-fonce);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -133,7 +134,7 @@ a:hover {
 }
 
 .no-scroll {
-  
+  overflow: hidden;
 }
 
 .sweeping-underline {
@@ -912,12 +913,16 @@ footer lord-icon {
     color: var(--gris-fonce);
   }
 
-  .burger span {
-    background: var(--gris-fonce);
+  header nav a {
+    color: var(--bleu-fonce);
   }
 
-  header nav a {
-    color: var(--gris-moyen);
+  header nav a:hover {
+    color: var(--orange);
+  }
+
+  .burger span {
+    background: var(--gris-fonce);
   }
 
   footer .koji-logo {
@@ -1291,13 +1296,19 @@ footer lord-icon {
     display: flex;
   }
 
-  header:has(#burger:checked) {
+  header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 8;
+    transition: transform 0.3s ease;
   }
+
+  header.hide {
+    transform: translateY(-100%);
+  }
+
   header:has(#burger:checked) .koji-logo {
     z-index: 9;
   }
@@ -1309,7 +1320,6 @@ footer lord-icon {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(30, 41, 59, 0.3);
     z-index: 5;
   }
 
@@ -1319,7 +1329,8 @@ footer lord-icon {
     left: 0;
     width: 100%;
     height: auto;
-    background-color: var(--bleu-fonce);
+    background-color: rgba(30, 41, 59, 0.9);
+    backdrop-filter: blur(10px);
     padding: 20px 0 20px 0;
     flex-direction: column;
     align-items: center;
@@ -1331,8 +1342,13 @@ footer lord-icon {
     margin: 1rem 0;
   }
 
+  [data-theme='light'] header nav a {
+    color: var(--gris-moyen);
+  }
+
   #koji-home .section-max-width {
     flex-direction: column-reverse;
+    padding-top: 76px;
   }
 
   #koji-home .section-max-width div {
@@ -1409,6 +1425,12 @@ footer lord-icon {
     transform: unset;
     overflow: unset;
     max-width: 370px;
+    transform: unset;
+  }
+
+  .step:hover .step-details {
+    max-height: 0;
+    margin-top: 0;
   }
 
   .reasons {
