@@ -26,10 +26,41 @@
 
 .slogan {
   position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 [data-theme='light'] {
   .slogan {
     filter: invert(1);
+  }
+}
+
+@media (max-width: 1300px) {
+  .slogan {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #presentation .section-max-width {
+    padding-top: 76px;
+  }
+
+  .netsu-div {
+    flex-direction: column-reverse;
+  }
+
+  .presentation-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+
+  .slogan {
+    position: relative;
+    transform: unset;
   }
 }
