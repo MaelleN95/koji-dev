@@ -2,7 +2,7 @@
 
 :root {
   --gris-clair: #f2f3f5;
-  --gris-moyen: #dcdfe4;
+  --gris-moyen: rgba(220, 223, 228, 1);
   --gris-fonce: #677182;
   --bleu-fonce: #1e293b;
   --orange: #f97316;
@@ -12,28 +12,73 @@
   --inter: 'Inter', sans-serif;
 }
 
+html {
+  scrollbar-color: var(--vert) var(--bleu-fonce);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--inter);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 0 auto;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+section:not(#koji-home):not(#presentation) {
+  padding: 1rem 0 4rem 0;
+}
+
+section h2 ~ p {
+  text-align: center;
+}
+
+.section-max-width,
+.footer-colomns {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
 h1 {
   font-family: var(--poppins);
   font-size: 3.5rem;
   font-weight: bolder;
-  color: var(--bleu-fonce);
   letter-spacing: -0.1rem;
   margin: 0;
+  line-height: 1.2;
 }
 
 h2 {
+  position: relative;
   font-family: var(--poppins);
   font-size: 2.25rem;
   font-weight: bold;
-  color: var(--bleu-fonce);
-  margin: 0.7rem 0 1.6rem 0;
+  padding: 2rem 0 1.6rem 0;
+  margin: 0;
+  text-align: center;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85px;
+  height: 5px;
+  background-color: var(--orange);
 }
 
 h3 {
   font-family: var(--poppins);
   font-size: 1.75rem;
   font-weight: medium;
-  color: var(--bleu-fonce);
   margin: 0;
 }
 
@@ -41,18 +86,32 @@ h4 {
   font-family: var(--poppins);
   font-size: 1.25rem;
   font-weight: medium;
-  color: var(--bleu-fonce);
   margin: 0;
 }
 
-body {
-  font-family: var(--inter);
-  font-size: 1.5rem;
-  color: var(--bleu-fonce);
-  background-color: var(--gris-clair);
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
+img {
+  -webkit-user-drag: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+}
+
+header .burger {
+  display: none;
+}
+
+.header-overlay {
+  display: none;
+}
+
+nav a {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 1.5rem;
 }
 
 p {
@@ -65,22 +124,137 @@ a {
   font-weight: bold;
   text-decoration: none;
   color: var(--orange);
+  position: relative;
+  transition: color 0.2s ease;
+  cursor: pointer;
 }
 
 a:hover {
   color: var(--vert);
-  text-decoration: underline;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.sweeping-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.sweeping-underline:hover {
+  text-decoration: none;
+}
+
+.sweeping-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.sweeping-underline:hover::after {
+  width: 100%;
+}
+
+.animated-card {
+  --card-width: 100%;
+  --card-height: 425px;
+  --animation-time: 15s;
+  padding: 0;
+  margin: 0;
+
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.animated-card-content {
+  --content-width: calc(var(--card-width) - 6px);
+  --content-height: calc(var(--card-height) - 6px);
+  width: var(--content-width);
+  height: var(--content-height);
+
+  z-index: 1;
+  border-radius: 12px;
+
+  backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.animated-blob {
+  --circle-size: 180px;
+  --half-circle: calc(var(--circle-size) / 2);
+
+  position: absolute;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  background-color: var(--orange);
+
+  animation: edge-bounce var(--animation-time) linear infinite;
+}
+
+.animated-card:hover .animated-blob {
+  animation-play-state: paused;
+}
+
+.blob-green {
+  background-color: var(--vert);
+  animation-delay: calc(var(--animation-time) / -2);
+}
+
+@keyframes edge-bounce {
+  0% {
+    top: calc(0% - var(--half-circle));
+    left: calc(0% - var(--half-circle));
+  }
+  25% {
+    top: calc(0% - var(--half-circle));
+    left: calc(100% - var(--half-circle));
+  }
+  50% {
+    top: calc(100% - var(--half-circle));
+    left: calc(100% - var(--half-circle));
+  }
+  75% {
+    top: calc(100% - var(--half-circle));
+    left: calc(0% - var(--half-circle));
+  }
+  100% {
+    top: calc(0% - var(--half-circle));
+    left: calc(0% - var(--half-circle));
+  }
 }
 
 .cta-btn {
+  position: relative;
   display: inline-block;
-  padding: 12px 25px;
+  font-family: var(--poppins);
   font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
   color: var(--orange);
+  text-decoration: none;
+  padding: 12px 25px;
   background-color: transparent;
   border: 2px solid var(--orange);
   border-radius: 5px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .cta-btn:hover {
@@ -89,13 +263,473 @@ a:hover {
   border-color: var(--vert);
 }
 
-footer {
+.cta-btn:active {
+  transform: scale(0.95);
+}
+
+.cta-btn:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+  transition: none;
+}
+
+.cta-btn:hover .sweeping-underline::after {
+  width: 100%;
+}
+
+.koji-logo {
+  width: 60px;
+}
+
+/* SECTION HOME */
+
+#koji-home .section-max-width {
+  display: flex;
+  align-items: center;
+}
+
+.koji-netsu {
+  width: 600px;
+  margin-top: 10rem;
+  margin-right: 2rem;
+}
+
+#koji-home .cta-btn {
+  margin-top: 1.5rem;
+}
+
+/* SECTION SERVICE */
+
+.services-card-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  margin: 0.75rem;
+  border-radius: 10px;
+  background-color: var(--gris-moyen);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 1px 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+  text-align: center;
+}
+
+.service-card lord-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+/* SECTION ACTION PLAN */
+
+.steps-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding-bottom: 40px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 158px;
+}
+
+.steps-container h3 {
   font-size: 1.2rem;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.step lord-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.step-icon {
+  position: relative;
+  width: 95px;
+  height: 95px;
+  background-color: var(--gris-clair);
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem 0;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.step-icon p {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -20px;
+  border-radius: 50%;
+  width: 37px;
+  height: 37px;
+  background-color: var(--orange);
+  font-weight: bold;
+}
+
+.step-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+  text-align: center;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.step:hover .step-details {
+  opacity: 1;
+  visibility: visible;
+  max-height: 200px;
+  margin-top: 0.2rem;
+  transform: translateY(0);
+}
+
+/* SECTION WHY KOJI */
+
+#why-koji h3 {
+  text-align: center;
+}
+
+.reasons {
+  padding: 2rem 0 1rem 0;
+  margin: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.reasons .animated-card-content {
+  background-color: rgba(220, 223, 228, 0.95);
+}
+
+.reason {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.reason p {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
+  transform: translateY(-10px);
+  transition: all 0.5s ease;
+}
+
+.reasons .animated-card-content:hover p {
+  opacity: 1;
+  visibility: visible;
+  max-height: 200px;
+  margin-top: 0.2rem;
+  transform: translateY(0);
+}
+
+.reasons lord-icon {
+  width: 250px;
+  height: 250px;
+}
+
+/* SECTION CONTACT */
+
+.form {
+  margin: auto;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  background-color: var(--gris-clair);
+  padding: 2rem;
+  padding-top: 3.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form .name-email {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 1rem;
+}
+
+.form .btn-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.form .submit-btn {
+  padding: 12px 60px;
+  background-color: var(--orange);
+  color: var(--gris-clair);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.form .submit-btn:disabled {
+  background-color: transparent;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form .submit-btn:hover {
+  background-color: var(--vert);
+  color: #1e293b;
+  border-color: var(--vert);
+}
+
+.input-field {
+  position: relative;
+  width: 100%;
+}
+
+.input-field label {
+  position: absolute;
   color: var(--gris-fonce);
+  pointer-events: none;
+  background-color: transparent;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.textarea-field label {
+  top: 20px;
+}
+
+.input-field input,
+.input-field textarea {
+  font-size: 1rem;
+  border-radius: 8px;
+  border: solid 2px #8f99ab;
+  letter-spacing: 1px;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--gris-clair);
+}
+
+.input-field textarea {
+  resize: vertical;
+  min-height: 62px;
+  max-height: 300px;
+}
+
+.input-field input:focus,
+.input-field textarea:focus {
+  outline: none;
+  border: solid 2px var(--bleu-fonce);
+  color: var(--bleu-fonce);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.input-field input:valid,
+.input-field textarea:valid {
+  outline: none;
+  border: solid 2px var(--vert);
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label,
+.input-field textarea:focus ~ label,
+.input-field textarea:valid ~ label {
+  transform: translateY(-120%) translateX(-15px) scale(0.8);
+  background: var(--gris-clair);
+  padding: 0px 10px;
+  color: var(--bleu-fonce);
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 100px;
+}
+
+.input-field textarea:focus ~ label,
+.input-field textarea:valid ~ label {
+  top: 20px;
+}
+
+.input-field input:invalid:not(:placeholder-shown) {
+  border: solid 2px var(--orange);
+}
+
+.input-field input:invalid:not(:placeholder-shown) ~ label {
+  transform: translateY(-120%) translateX(-10px) scale(0.8);
+  background: var(--gris-clair);
+  padding: 0px 10px;
+  color: var(--orange);
+}
+
+.input-field textarea:invalid:not(:placeholder-shown) ~ label {
+  top: 20px;
+}
+
+/* Autofill styles for webkit browsers */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px var(--gris-clair) inset;
+  -webkit-text-fill-color: var(--gris-fonce);
+}
+
+#submit-btn-icon {
+  opacity: 1;
+  width: 30px;
+  height: 30px;
+  transition: opacity 1s ease;
+}
+
+#form-state-info {
+  margin: 0;
+  height: 1.4rem;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--bleu-fonce);
+}
+
+/* FOOTER */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 1rem 3rem;
+  color: var(--gris-clair);
+  background-color: var(--bleu-fonce);
+}
+
+.footer-colomns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 0 1rem 0;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.footer-logo-div {
+  text-align: initial;
+  max-width: 350px;
+}
+
+.footer-logo-div > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer-logo-div img {
+  width: 84px;
+}
+
+.footer-logo-div span {
+  font-family: var(--poppins);
+  font-size: 3.5rem;
+  font-weight: bolder;
+  letter-spacing: -0.1rem;
+  margin-left: 1rem;
+}
+
+.footer-links nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.footer-links nav a {
+  margin: 0.1rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.link-with-animated-icon,
+.footer-contact a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+footer lord-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.link-with-animated-icon:hover {
+  --lord-icon-primary: var(--vert);
+}
+
+.footer-contact a {
+  margin: 0.2rem 0;
+}
+
+.footer-contact a:hover svg {
+  color: var(--vert);
+}
+
+.footer-contact a svg {
+  width: 30px;
+  margin-right: 0.5rem;
+  fill: currentColor;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
 }
 
 /* TOGGLE THEME BUTTON */
@@ -112,6 +746,7 @@ footer {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
+  z-index: 5;
 }
 
 #theme-toggle {
@@ -146,35 +781,170 @@ footer {
   transform: rotate(180deg) scale(0);
 }
 
+/* Burger menu */
+
+.burger {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  z-index: 7;
+}
+
+#burger {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: var(--gris-moyen);
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transform-origin: left center;
+  transition: 0.25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0px;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform: translateY(-100%);
+}
+
+#burger:checked + .burger span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 5px;
+}
+
+#burger:checked + .burger span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#burger:checked + .burger span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 28px;
+  left: 5px;
+}
+
+/* Loader */
+
+.loader {
+  --loader-size: 30px;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  display: grid;
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  grid-area: 1/1;
+  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
+    var(--c) 0 50%;
+  background-size: calc(var(--loader-size) / 5) calc(var(--loader-size) / 5);
+  background-repeat: no-repeat;
+  animation: loader3hs4a3 1s infinite;
+}
+
+.loader:before {
+  --c: radial-gradient(farthest-side, var(--vert) 92%, #0000);
+  margin: 3px;
+  background-size: calc(var(--loader-size) / 6) calc(var(--loader-size) / 6);
+  animation-timing-function: linear;
+}
+
+.loader:after {
+  --c: radial-gradient(farthest-side, var(--orange) 92%, #0000);
+}
+
+@keyframes loader3hs4a3 {
+  100% {
+    transform: rotate(0.5turn);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
 /* TEMPORARY FOR THE MAINTENANCE PAGE */
-
-.comming-soon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-}
-
-.comming-soon .koji-logo {
-  width: 200px;
-  margin-bottom: 2rem;
-}
-
-.comming-soon .countdown-timer {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--orange);
-}
 
 /* LIGHT / DARK MODE */
 
 [data-theme='light'] {
   color-scheme: light;
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--bleu-fonce);
+  }
+  ul {
+    color: var(--bleu-fonce);
+  }
+
+  body {
+    background-color: var(--gris-clair);
+    color: var(--bleu-fonce);
+  }
+
   .koji-logo {
     filter: brightness(0);
+  }
+
+  header {
+    background-color: var(--gris-clair);
+    color: var(--gris-fonce);
+  }
+
+  header nav a {
+    color: var(--bleu-fonce);
+  }
+
+  header nav a:hover {
+    color: var(--orange);
+  }
+
+  .burger span {
+    background: var(--gris-fonce);
+  }
+
+  footer .koji-logo {
+    filter: none;
+  }
+
+  #koji-home,
+  #contact,
+  #presentation {
+    background: linear-gradient(
+      117deg,
+      rgba(242, 243, 245, 1) 0%,
+      rgba(220, 223, 228, 1) 100%
+    );
+  }
+
+  #action-plan {
+    background: linear-gradient(
+      320deg,
+      rgba(242, 243, 245, 1) 0%,
+      rgb(201, 208, 219) 100%
+    );
   }
 }
 
@@ -186,11 +956,68 @@ footer {
     color: var(--gris-clair);
   }
 
+  header,
+  footer {
+    background-color: var(--bleu-fonce);
+    color: var(--gris-clair);
+  }
+
+  ul {
+    color: var(--gris-clair);
+  }
+
   h1,
   h2,
   h3,
   h4 {
     color: var(--gris-clair);
+  }
+
+  #koji-home,
+  #contact,
+  #presentation {
+    background: var(--bleu-fonce);
+    background: linear-gradient(
+      160deg,
+      rgb(49, 67, 89) 0%,
+      rgba(30, 41, 59, 1) 100%
+    );
+  }
+
+  .service-card {
+    background-color: rgba(58, 79, 105, 0.95);
+    color: var(--gris-clair);
+  }
+
+  #action-plan {
+    background: linear-gradient(
+      320deg,
+      rgb(58, 79, 105) 0%,
+      rgb(34, 46, 66) 100%
+    );
+  }
+
+  .step-icon {
+    background-color: var(--gris-moyen);
+  }
+
+  .reasons .animated-card-content {
+    background-color: rgba(58, 79, 105, 0.95);
+  }
+
+  #why-koji,
+  #services,
+  #values {
+    --lord-icon-primary: var(--gris-moyen);
+  }
+
+  .form {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  .input-field input,
+  .input-field textarea {
+    color: var(--bleu-fonce);
   }
 }
 
@@ -198,8 +1025,8 @@ footer {
 /*        RESPONSIVE STYLES      */
 /* ============================== */
 
-/* Small desktop (max-width: 1024px) */
-@media (max-width: 1024px) {
+/* Desktop - 1025 > 1330 (max-width: 1330px) */
+@media (max-width: 1330px) {
   h1 {
     font-size: 2.75rem;
   }
@@ -209,7 +1036,7 @@ footer {
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   h4 {
@@ -217,20 +1044,33 @@ footer {
   }
 
   body {
-    font-size: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .section-max-width {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  header,
+  footer {
+    padding: 1rem 1.5rem;
+  }
+
+  header nav a {
+    font-size: 1.1rem;
+    margin: 0 1.3rem;
+  }
+
+  .koji-netsu {
+    width: 42vw;
+    margin-top: 10rem;
+    margin-right: 2rem;
   }
 
   .cta-btn {
     font-size: 1.1rem;
     padding: 10px 20px;
-  }
-
-  .comming-soon .koji-logo {
-    width: 160px;
-  }
-
-  .comming-soon .countdown-timer {
-    font-size: 2.5rem;
   }
 
   .theme-toggle {
@@ -242,10 +1082,36 @@ footer {
     width: 28px;
     height: 28px;
   }
+
+  .service-card {
+    padding: 0.7rem;
+    margin: 0.5rem;
+  }
+
+  .service-card h3 {
+    padding-top: 0.9rem;
+  }
+
+  .service-card ul {
+    padding-left: 2rem;
+  }
+  .service-card lord-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .reasons lord-icon {
+    width: 150px;
+    height: 150px;
+  }
+
+  .animated-card {
+    --card-height: 350px;
+  }
 }
 
-/* Tablet (max-width: 768px) */
-@media (max-width: 768px) {
+/* Tablet - 769 > 1024 (max-width: 1024px) */
+@media (max-width: 1024px) {
   h1 {
     font-size: 2.25rem;
     letter-spacing: -0.05rem;
@@ -261,32 +1127,129 @@ footer {
 
   body {
     font-size: 1rem;
-    padding: 0 1rem;
+  }
+
+  .section-max-width {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .koji-logo {
+    width: 50px;
+  }
+
+  header,
+  footer {
+    padding: 0.8rem 1.5rem;
+  }
+
+  header nav a {
+    font-size: 0.9rem;
+    margin: 0 0.8rem;
+  }
+
+  .koji-netsu {
+    width: 42vw;
+    margin-top: 9rem;
+    margin-right: 0rem;
   }
 
   .cta-btn {
     font-size: 1rem;
-    padding: 8px 16px;
   }
 
-  .comming-soon {
-    padding: 2rem 1rem;
+  #koji-home .cta-btn {
+    margin-top: 0.5rem;
   }
 
-  .comming-soon .koji-logo {
-    width: 130px;
-    margin-bottom: 1.5rem;
+  .services-card-section {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .comming-soon .countdown-timer {
-    font-size: 2rem;
+  .service-card {
+    padding: 0.5rem 1.5rem;
   }
 
-  footer {
-    font-size: 1rem;
-    padding: 0 1rem;
-    text-align: center;
-    flex-direction: column;
+  .steps-container {
+    padding-bottom: 30px;
+    padding-top: 15px;
+  }
+
+  .steps-container h3 {
+    font-size: 0.9rem;
+  }
+
+  .step-icon {
+    position: relative;
+    width: 85px;
+    height: 85px;
+  }
+
+  .step-icon p {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+    left: -15px;
+  }
+
+  .reasons lord-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .animated-card {
+    --card-height: 290px;
+  }
+
+  .form .submit-btn {
+    padding: 10px 50px;
+  }
+
+  .footer-logo-div {
+    max-width: 310px;
+  }
+
+  .footer-logo-div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-logo-div > p {
+    margin: 0.8rem 0;
+  }
+
+  .footer-logo-div img {
+    width: 74px;
+  }
+
+  .footer-logo-div span {
+    letter-spacing: -0.01rem;
+    margin-left: 1rem;
+  }
+
+  .footer-links nav a,
+  .footer-contact a {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  footer lord-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+
+  .footer-contact a svg {
+    width: 20px;
+    margin-right: 10px;
+    fill: currentColor;
+  }
+
+  .copyright {
+    font-size: 0.7rem;
   }
 
   .theme-toggle {
@@ -302,8 +1265,8 @@ footer {
   }
 }
 
-/* Mobile (max-width: 480px) */
-@media (max-width: 480px) {
+/* Small tablet - 481 - 768 (max-width: 768px) */
+@media (max-width: 768px) {
   h1 {
     font-size: 1.75rem;
     letter-spacing: -0.03rem;
@@ -323,36 +1286,249 @@ footer {
 
   body {
     font-size: 0.95rem;
-    padding: 0 0.75rem;
+  }
+
+  header .burger {
+    display: block;
+  }
+
+  header nav {
+    display: none;
+  }
+
+  #burger:checked ~ nav {
+    display: flex;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 8;
+    transition: transform 0.3s ease;
+  }
+
+  header.hide {
+    transform: translateY(-100%);
+  }
+
+  header:has(#burger:checked) .koji-logo {
+    z-index: 9;
+  }
+
+  header:has(#burger:checked) .header-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+  }
+
+  header nav {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(30, 41, 59, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px 0 20px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+  }
+
+  header nav a {
+    margin: 1rem 0;
+  }
+
+  [data-theme='light'] header nav a {
+    color: var(--gris-moyen);
+  }
+
+  #koji-home .section-max-width {
+    flex-direction: column-reverse;
+    padding-top: 76px;
+  }
+
+  #koji-home .section-max-width div {
+    width: 100%;
+    padding: 3rem 0;
+  }
+
+  .koji-netsu {
+    width: 415px;
+    margin-top: 0;
+    margin-right: 0;
   }
 
   .cta-btn {
     font-size: 0.95rem;
-    padding: 8px 14px;
+    padding: 8px 20px;
   }
 
-  .comming-soon {
-    padding: 1.5rem 0.75rem;
+  .service-card {
+    padding: 0.7rem;
   }
 
-  .comming-soon .koji-logo {
-    width: 100px;
-    margin-bottom: 1.2rem;
+  .service-card ul {
+    padding-left: 5vw;
   }
 
-  .comming-soon .countdown-timer {
-    font-size: 1.5rem;
+  .service-card lord-icon {
+    width: 70px;
+    height: 70px;
   }
 
-  footer {
-    font-size: 0.875rem;
-    padding: 0 0.5rem;
-    text-align: center;
+  .steps-container {
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding-bottom: 0;
+  }
+
+  .steps-container h3 {
+    font-size: 1.1rem;
+  }
+
+  .step {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-bottom: 7rem;
+  }
+
+  .step-icon {
+    width: 150px;
+    height: 150px;
+  }
+
+  .step lord-icon {
+    width: 85px;
+    height: 85px;
+  }
+
+  .step-icon p {
+    top: -35px;
+    left: unset;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .step-details {
+    position: relative;
+    left: unset;
+    bottom: unset;
+    opacity: 1;
+    visibility: visible;
+    transform: unset;
+    overflow: unset;
+    max-width: 370px;
+    transform: unset;
+  }
+
+  .step:hover .step-details {
+    max-height: 0;
+    margin-top: 0;
+  }
+
+  .reasons {
+    padding: 2rem 0 1rem 0;
+    margin: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  #why-koji h3 {
+    font-size: 1.2rem;
+  }
+
+  #contact .name-email {
+    grid-template-columns: 1fr;
+  }
+
+  .input-field textarea {
+    min-height: 150px;
+    max-height: 300px;
+  }
+
+  .footer-colomns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 1rem;
+    gap: 3rem;
+  }
+
+  .footer-logo-div {
+    max-width: 100%;
+  }
+
+  .footer-section-title {
+    font-size: 1.2rem;
   }
 
   .icon {
     width: 22px;
     height: 22px;
+  }
+}
+
+/* Mobile - 320 - 480 (max-width: 480px) */
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+    letter-spacing: -0.02rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  h4 {
+    font-size: 0.9rem;
+  }
+
+  body {
+    font-size: 0.9rem;
+  }
+
+  .services-card-section {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card ul {
+    padding-left: 7vw;
+  }
+
+  .koji-netsu {
+    width: 100%;
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  .animated-card {
+    --card-height: 300px;
+  }
+
+  .form .submit-btn {
+    padding: 10px 30px;
+  }
+
+  .footer-logo-div span {
+    font-size: 2rem;
   }
 }
