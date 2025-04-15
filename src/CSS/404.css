@@ -1,0 +1,92 @@
+main {
+  position: relative;
+}
+
+h1 {
+  padding: 2.5rem 0;
+}
+
+.lost-netsu {
+  width: 100%;
+}
+
+.img-container {
+  padding-top: 10.6rem;
+}
+
+.img-effect {
+  position: relative;
+}
+
+.img-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bleu-fonce) 30%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.error404-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.error-page-btns {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+[data-theme='light'] {
+  h1 {
+    color: var(--gris-clair);
+  }
+
+  main {
+    color: var(--gris-clair);
+  }
+}
+
+@media (max-width: 1330px) {
+  .img-container {
+    padding-top: 12rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .img-container {
+    padding-top: 15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-container {
+    padding-top: 24rem;
+  }
+
+  .error-page-btns {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .img-container {
+    padding-top: 30rem;
+    overflow: hidden;
+  }
+
+  .lost-netsu {
+    transform: scale(2.5);
+    clip-path: inset(40% 10% 20% 10%);
+  }
+}
