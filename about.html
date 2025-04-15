@@ -79,11 +79,14 @@
   </head>
   <body>
     <header>
-      <img
-        src="./src/assets/images/logos/koji-logo.png"
-        alt="Logo Koji"
-        class="koji-logo"
-      />
+      <a href="/">
+        <img
+          src="./src/assets/images/logos/koji-logo.png"
+          alt="Logo Koji"
+          class="koji-logo"
+          title="Page d'accueil"
+        />
+      </a>
 
       <input type="checkbox" id="burger" />
       <label class="burger" for="burger">
@@ -93,10 +96,10 @@
       </label>
 
       <nav>
-        <a href="/index"  class="sweeping-underline">Accueil</a>
-        <a href="/"  class="sweeping-underline">A propos</a>
-        <a href="/index/#services"  class="sweeping-underline">Mes services</a>
-        <a href="/index/#contact"  class="sweeping-underline">Contact</a>
+        <a href="/" class="sweeping-underline">Accueil</a>
+        <a href="/#services" class="sweeping-underline">Mes services</a>
+        <a href="/" class="sweeping-underline">A propos</a>
+        <a href="/#contact" class="sweeping-underline">Contact</a>
       </nav>
       <div class="header-overlay"></div>
     </header>
@@ -112,9 +115,10 @@
             <div>
               <h1>Bienvenue chez Kōji</h1>
               <p>
-                <strong>Kōji</strong> (工事) signifie "travail" ou "construction"
-                en japonais. Ce nom symbolise mon engagement à bâtir des sites web
-                performants, esthétiques et adaptés à vos besoins.
+                <strong>Kōji</strong> (工事) signifie "travail" ou
+                "construction" en japonais. Ce nom symbolise mon engagement à
+                bâtir des sites web performants, esthétiques et adaptés à vos
+                besoins.
               </p>
               <p>
                 Inspirée par la nature et la culture japonaise, je m’efforce
@@ -122,7 +126,6 @@
                 du travail japonais.
               </p>
             </div>
-            
           </div>
           <div class="netsu-div">
             <img
@@ -161,7 +164,9 @@
                   >
                   </lord-icon>
                   <h3>Passion</h3>
-                  <p>Un amour sincère pour le web et une curiosité insatiable.</p>
+                  <p>
+                    Un amour sincère pour le web et une curiosité insatiable.
+                  </p>
                 </div>
               </div>
               <div class="animated-blob"></div>
@@ -178,9 +183,7 @@
                   >
                   </lord-icon>
                   <h3>Qualité</h3>
-                  <p>
-                    Des projets réalisés avec soin, à votre image.
-                  </p>
+                  <p>Des projets réalisés avec soin, à votre image.</p>
                 </div>
               </div>
               <div class="animated-blob"></div>
@@ -198,13 +201,15 @@
                   </lord-icon>
                   <h3>Échange</h3>
                   <p>
-                    Une collaboration humaine, basée sur l’écoute et la confiance.
+                    Une collaboration humaine, basée sur l’écoute et la
+                    confiance.
                   </p>
                 </div>
               </div>
               <div class="animated-blob"></div>
               <div class="animated-blob blob-green"></div>
             </div>
+          </div>
         </div>
       </section>
     </main>
@@ -236,16 +241,6 @@
               </lord-icon>
               <span class="sweeping-underline">Accueil</span></a
             >
-            <a href="#" class="link-with-animated-icon"
-              ><lord-icon
-                src="https://cdn.lordicon.com/yxczfiyc.json"
-                trigger="hover"
-                colors="primary:#f97316"
-                target=".link-with-animated-icon"
-              >
-              </lord-icon
-              ><span class="sweeping-underline">A propos</span></a
-            >
             <a href="/index.html/#services" class="link-with-animated-icon"
               ><lord-icon
                 src="https://cdn.lordicon.com/pflszboa.json"
@@ -255,6 +250,16 @@
               >
               </lord-icon
               ><span class="sweeping-underline">Mes services</span></a
+            >
+            <a href="#" class="link-with-animated-icon"
+              ><lord-icon
+                src="https://cdn.lordicon.com/yxczfiyc.json"
+                trigger="hover"
+                colors="primary:#f97316"
+                target=".link-with-animated-icon"
+              >
+              </lord-icon
+              ><span class="sweeping-underline">A propos</span></a
             >
             <a href="/index.html/#contact" class="link-with-animated-icon"
               ><lord-icon

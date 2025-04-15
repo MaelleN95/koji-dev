@@ -1267,7 +1267,8 @@ footer lord-icon {
 
 /* Small tablet - 481 - 768 (max-width: 768px) */
 @media (max-width: 768px) {
-  h1 {
+  h1,
+  .footer-logo-div span {
     font-size: 1.75rem;
     letter-spacing: -0.03rem;
   }
