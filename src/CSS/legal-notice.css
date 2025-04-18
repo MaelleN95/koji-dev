@@ -1,3 +1,7 @@
+.legal-notice-main {
+  padding: 0 2rem;
+}
+
 .legal-notice-paragraph {
   text-align: left;
 }
@@ -19,4 +23,11 @@ h3::after {
   width: 85px;
   height: 4px;
   background-color: var(--vert);
+}
+
+@media (max-width: 768px) {
+  .legal-notice-main {
+    padding: 0 2rem;
+    margin-top: 95px;
+  }
 }
